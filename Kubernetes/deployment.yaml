@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mavi-web
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mavi-web
+  template:
+    metadata:
+      labels:
+        app: mavi-web
+    spec:
+      containers:
+        - name: mavi-web
+          image: mavi-web:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
